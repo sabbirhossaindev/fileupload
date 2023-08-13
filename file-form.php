@@ -96,7 +96,7 @@
             <label for="No">No</label><br>
 
             <!-- file upload -->
-            <input type="file" class="photo" id="" aria-label="Upload" class="mt-2 my-3">
+            <input type="file" name="photo" id="" aria-label="Upload" class="mt-2 my-3">
 
             <input class="mt-3 submit-btn" type="submit" value="Submit">
         </form>

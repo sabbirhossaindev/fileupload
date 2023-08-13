@@ -38,17 +38,12 @@ echo"Do you speak any languages other than English: " .  $_POST['language'];
 echo "<br>";
 
 // upload file......
-var_dump($_FILES['photo']);
+// var_dump($_FILES['photo']); // check data 
 
 $file_name = $_FILES['photo']['name'];
 $file_tmp = $_FILES['photo']['tmp_name'];
 $file_destination = 'uploads/'.$file_name;
 move_uploaded_file($file_tmp,$file_destination);
 echo "<h1>File uploaded done!</h1>";
-
-echo $file_name;
-
-
-
 
 ?>
