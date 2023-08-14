@@ -40,10 +40,23 @@ echo "<br>";
 // upload file......
 // var_dump($_FILES['photo']); // check data 
 
-$file_name = $_FILES['photo']['name'];
-$file_tmp = $_FILES['photo']['tmp_name'];
-$file_destination = 'uploads/'.$file_name;
-move_uploaded_file($file_tmp,$file_destination);
-echo "<h1>File uploaded done!</h1>";
+function imageUpload($file_form_name, $jpg, $png, $jpeg){
+    $file_name = $file_form_name['name'];
+    $file_size = $file_form_name['size'];
+    // echo "File Size ".$file_size;
+    // exit();
+    $file_extension = explode(".", $file_name);
+    $file_type = $file_extension[1];
+    if($file_type == $jpg || $file_type == $png || $file_type == $jpeg && $file_size == "2. MB"){
+        $file_tmp = $file_form_name['tmp_name'];
+        $file_destination = 'uploads/'.$file_name;
+        move_uploaded_file($file_tmp,$file_destination);
+        return "<h2>File uploaded done!</h2>";
+    }
+    else{
+        return "<h2>File not match. Please try again!</h2>";
+    }
+}
+imageUpload($_FILES['photo'],"jpg", "png", "jpeg", "2. MB");
 
 ?>
